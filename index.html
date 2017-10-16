@@ -1,0 +1,118 @@
+<html>
+<head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
+
+form {
+    border: 3px solid #f1f1f1;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.container {
+    padding: 16px;
+}
+</style>
+</head>
+
+
+
+
+<body>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+    
+   <div class=''container''>
+    <div class="row">
+      <div class="col l3 #64b5f6 blue lighten-2">Funktionen</div>
+       <div class="col l6 #b2ebf2 cyan lighten-4">Text/Dokument</div>
+      <div class="col l3 #64b5f6 blue lighten-2">Kommentare</div>
+    </div>
+
+
+<div style="padding:20px">
+<a class="btn btn-floating btn-large cyan pulse"><i onclick="on()" class="material-icons">edit</i></a>
+</div> 
+
+<div id="overlay" onclick="off()">
+  <div id="text">Login-Overlay</div>
+  <form action="/action_page.php">
+  <div class="imgcontainer">
+</div>
+
+  <div class="container">
+    <label><b>Benutzer</b></label>
+    <input type="text" placeholder="Name eingeben" name="uname" required>
+
+    <label><b>Passwort</b></label>
+    <input type="password" placeholder="Passwort eingeben" name="psw" required>
+
+    <button type="submit">Login</button>
+  </div>
+</form>
+</div>
+
+
+<script>
+function on() {
+    document.getElementById("overlay").style.display = "block";
+}
+
+function off() {
+    document.getElementById("overlay").style.display = "none";
+}
+</script>
+
+
+</body>
+</html>
