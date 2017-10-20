@@ -1,8 +1,14 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <style>
-        #overlay {
+<head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+#overlay {
     position: fixed;
     display: none;
     width: 100%;
@@ -11,169 +17,112 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,1);
     z-index: 2;
     cursor: pointer;
 }
-#loginf{
-    border: 1px solid black;
-    border-radius: 20px;
-    height: 30%;
-    width: 30%;
+#text{
     position: absolute;
-    background-color: #ffffff;
-    top: 35%;
-    left: 35%;
-    text-align: center;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
 }
-#elems{
-    position: absolute;
+form {
+    border: 3px solid #f1f1f1;
 }
-#username{
-    height: 8%;
-    width: 80%;
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
-#pwd{
-    height: 8%;
-    width: 80%;
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
 }
-.formb{
-    position: absolute;
+button:hover {
+    opacity: 0.8;
+}
+
+.eingabe {
+ color: #ffffff;
+}
+
+.container {
+    padding: 16px;
+}
+</style>
+</head>
+
+
+
+
+<body>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
     
-    bottom: 5px;
-}
-#btn1{
-   margin-left: -100px;
-}
-
- 
-    </style>
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
-
-    <script>
-        var admin = false;
-        $(document).ready(function() {
-            
-        });
-        function addcomment(){
-           
-            document.getElementById("overlay").style.display = "block";
-        }
-        function off() {
-            document.getElementById("overlay").style.display = "none";
-        }
-        function submitf(){
-            off();
-            console.log(document.getElementById("username").value);
-            if(document.getElementById("username").value =="Emir" && document.getElementById("pwd").value =="123"){
-                alert("success");
-                admin = true;
-            }else{
-                alert("falied to LogIn");
-            }
-        }
-        //-------------------------------------------------------
-        function getSelectedText() {
-            
-            var text = "";
-            if (typeof window.getSelection != "undefined") {
-                var textdiv = document.getElementById("textdiv");
-                //if(window.getSelection().baseNode.parentNode.id == "textdiv"){
-                    text = window.getSelection()//.toString();
-                    var selection = window.getSelection();
-                    console.log(selection);
-                    console.log(selection.anchorNode);
-                    var inhalt = document.getElementById("textdiv").innerHTML;
-                    console.log(inhalt)
-                //}
-                
-            }/* else if (typeof document.selection != "undefined" && document.selection.type == "Text") {
-                //text = document.getElementById("textdiv").selection.creallus. Allus. Allus. Allus. Allus. AteRange().text;
-            }*/
-            //text = window.getSelection().getRangeAt(0);
-            return text;
-        }
-        
-        function doSomethingWithSelectedText() {
-            var selectedText = getSelectedText();
-            if (selectedText) {
-                console.log("Got selected text: " + selectedText);
-            }
-        }
-        
-        document.onmouseup = doSomethingWithSelectedText;
-       
-        //--------------------------------------------------------
-
-
-    
-    </script>
-
-
-
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  </head>
-
-  <body>
-      <!--Import jQuery before materialize.js-->
-   
-
-    <div class="row">
-        <div id="overlay" >
-            <div class="row" id="loginf">LogIn Please!
-                    <br>
-                    <input id="username" type="text">
-                    <br>
-                    <input id="pwd" type="text">
-                    <br>
-                    <button id="btn1" class="formb" onclick="off()">Cancel</button>
-                    <button  onclick="submitf()" class="formb">Submit</button>
-
-            </div>
-            
-        </div>
-
-
-
-
-        <div class="col l2"> <a onclick="addcomment()" class="waves-effect waves-light btn">Bearbeiten</a></div>
-        <div id="textdiv" class="col l7">
-                1Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, 
-                <br>
-                2Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, 
-                3Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, 
-
-        </div>
-        <div class="col l3">Kommentare
-
- <div class="comment">
-        <form id="kommentar" name="kommentar" action="">
-<div>
-  <label for="absendername">Name</label>
-  <input type="text" id="absendername" name="absendername" />
-</div>
-<div>
   
-  <textarea id="nachricht" name="nachricht" placeholder="Kommentar eingeben" cols="250" rows="5"></textarea> 
+    <div class="row">
+    <div class="col l3 #64b5f6 blue lighten-2">Kommentare</div>
+    <div class="col l8 #64b5f6 blue lighten-2">Dokument</div>   
+    <div class="col l1 #64b5f6 blue lighten-2">Funktionen</div>
+    <div class="col l3"></div>
+<div id="textdiv" class="col l8">1Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</div>
+
+
+
+    </div>
+
+
+ <div class="fixed-action-btn dropup click-to-toggle">
+    <a class="btn-floating btn-large blue">
+      <i class="material-icons">menu</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating blue cyan pulse" ><i class="material-icons">forum</i></a></li>
+      <li><a class="btn btn-floating blue cyan pulse"><i onclick="on()" class="material-icons">edit</i></a></li>
+    </ul>
+  </div>
+
+
+<div id="overlay" onclick="on()">
+  <form >
+  <div class="imgcontainer">
 </div>
-<div>
-  <input type="submit" value="Abschicken"/>
-</div>
+
+  <div class="container">
+    <label><b>Benutzer</b></label>
+    <input class="eingabe" type="text" placeholder="Name eingeben" name="uname" required>
+
+    <label><b>Passwort</b></label>
+    <input class="eingabe" type="password" placeholder="Passwort eingeben" name="psw" required>
+
+    <button onclick="off()">Login</button>
+    <button class="red darken-1" onclick="off()">Cancel</button>
+  </div>
 </form>
 </div>
 
 
-        </div>
-    </div>
+<script>
+function on() {
+    document.getElementById("overlay").style.display = "block";
+}
+function off() {
+    document.getElementById("overlay").style.display = "none";
+}
+</script>
 
-    
-  </body>
+
+</body>
 </html>
