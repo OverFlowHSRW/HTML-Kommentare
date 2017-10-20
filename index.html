@@ -1,14 +1,8 @@
+<!DOCTYPE html>
 <html>
-<head>
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <style>
-#overlay {
+  <head>
+    <style>
+        #overlay {
     position: fixed;
     display: none;
     width: 100%;
@@ -21,98 +15,165 @@
     z-index: 2;
     cursor: pointer;
 }
-
-#text{
+#loginf{
+    border: 1px solid black;
+    border-radius: 20px;
+    height: 30%;
+    width: 30%;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 50px;
-    color: white;
-    transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
+    background-color: #ffffff;
+    top: 35%;
+    left: 35%;
+    text-align: center;
 }
-
-form {
-    border: 3px solid #f1f1f1;
+#elems{
+    position: absolute;
 }
-
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+#username{
+    height: 8%;
+    width: 80%;
 }
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
+#pwd{
+    height: 8%;
+    width: 80%;
 }
-
-button:hover {
-    opacity: 0.8;
-}
-
-.container {
-    padding: 16px;
-}
-</style>
-</head>
-
-
-
-
-<body>
-      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
+.formb{
+    position: absolute;
     
-   <div class=''container''>
+    bottom: 5px;
+}
+#btn1{
+   margin-left: -100px;
+}
+
+ 
+    </style>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+
+    <script>
+        var admin = false;
+        $(document).ready(function() {
+            
+        });
+        function addcomment(){
+           
+            document.getElementById("overlay").style.display = "block";
+        }
+        function off() {
+            document.getElementById("overlay").style.display = "none";
+        }
+        function submitf(){
+            off();
+            console.log(document.getElementById("username").value);
+            if(document.getElementById("username").value =="Emir" && document.getElementById("pwd").value =="123"){
+                alert("success");
+                admin = true;
+            }else{
+                alert("falied to LogIn");
+            }
+        }
+        //-------------------------------------------------------
+        function getSelectedText() {
+            
+            var text = "";
+            if (typeof window.getSelection != "undefined") {
+                var textdiv = document.getElementById("textdiv");
+                //if(window.getSelection().baseNode.parentNode.id == "textdiv"){
+                    text = window.getSelection()//.toString();
+                    var selection = window.getSelection();
+                    console.log(selection);
+                    console.log(selection.anchorNode);
+                    var inhalt = document.getElementById("textdiv").innerHTML;
+                    console.log(inhalt)
+                //}
+                
+            }/* else if (typeof document.selection != "undefined" && document.selection.type == "Text") {
+                //text = document.getElementById("textdiv").selection.creallus. Allus. Allus. Allus. Allus. AteRange().text;
+            }*/
+            //text = window.getSelection().getRangeAt(0);
+            return text;
+        }
+        
+        function doSomethingWithSelectedText() {
+            var selectedText = getSelectedText();
+            if (selectedText) {
+                console.log("Got selected text: " + selectedText);
+            }
+        }
+        
+        document.onmouseup = doSomethingWithSelectedText;
+       
+        //--------------------------------------------------------
+
+
+    
+    </script>
+
+
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+  <body>
+      <!--Import jQuery before materialize.js-->
+   
+
     <div class="row">
-      <div class="col l3 #64b5f6 blue lighten-2">Funktionen</div>
-       <div class="col l6 #b2ebf2 cyan lighten-4">Text/Dokument</div>
-      <div class="col l3 #64b5f6 blue lighten-2">Kommentare</div>
-    </div>
+        <div id="overlay" >
+            <div class="row" id="loginf">LogIn Please!
+                    <br>
+                    <input id="username" type="text">
+                    <br>
+                    <input id="pwd" type="text">
+                    <br>
+                    <button id="btn1" class="formb" onclick="off()">Cancel</button>
+                    <button  onclick="submitf()" class="formb">Submit</button>
+
+            </div>
+            
+        </div>
 
 
-<div style="padding:20px">
-<a class="btn btn-floating btn-large cyan pulse"><i onclick="on()" class="material-icons">edit</i></a>
-</div> 
 
-<div id="overlay" onclick="off()">
-  <div id="text">Login-Overlay</div>
-  <form action="/action_page.php">
-  <div class="imgcontainer">
+
+        <div class="col l2"> <a onclick="addcomment()" class="waves-effect waves-light btn">Bearbeiten</a></div>
+        <div id="textdiv" class="col l7">
+                1Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, 
+                <br>
+                2Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, 
+                3Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, 
+
+        </div>
+        <div class="col l3">Kommentare
+
+ <div class="comment">
+        <form id="kommentar" name="kommentar" action="">
+<div>
+  <label for="absendername">Name</label>
+  <input type="text" id="absendername" name="absendername" />
 </div>
-
-  <div class="container">
-    <label><b>Benutzer</b></label>
-    <input type="text" placeholder="Name eingeben" name="uname" required>
-
-    <label><b>Passwort</b></label>
-    <input type="password" placeholder="Passwort eingeben" name="psw" required>
-
-    <button type="submit">Login</button>
-  </div>
+<div>
+  
+  <textarea id="nachricht" name="nachricht" placeholder="Kommentar eingeben" cols="250" rows="5"></textarea> 
+</div>
+<div>
+  <input type="submit" value="Abschicken"/>
+</div>
 </form>
 </div>
 
 
-<script>
-function on() {
-    document.getElementById("overlay").style.display = "block";
-}
+        </div>
+    </div>
 
-function off() {
-    document.getElementById("overlay").style.display = "none";
-}
-</script>
-
-
-</body>
+    
+  </body>
 </html>
