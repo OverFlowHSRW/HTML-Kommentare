@@ -1,0 +1,54 @@
+#panell{
+  margin-top: 100px;
+  padding: 0px;
+}
+#loginbtn{
+  float: right;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+#title{
+  background-color: #2bbbad;
+  color: white;
+  padding: 8px;
+  margin-top: 0px
+}
+form{
+  padding:0px;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+#username,#password{
+ margin-left: 20px;
+ margin-right: 20px;
+}
+#checkbox{
+ margin-left: 30px;
+}
+.highlight-text{
+  background: yellow;
+}
+
+i.icon-gelb {
+  color: yellow;
+}
+i.icon-lila {
+  color: purple;
+}
+i.icon-blau {
+  color: blue;
+}
+i.icon-grün {
+  color: green;
+}
+i.icon-rot {
+  color: red;
+}
+#shadow{
+  box-shadow: 0px 1px 1px 2px rgb(161, 161, 161);
+}
+div.comment {
+  max-width: 350px;
+  height: 175px;
+  margin: 10px;
+}
