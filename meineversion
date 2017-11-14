@@ -1,0 +1,261 @@
+<html>
+<head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+#overlay {
+    position: fixed;
+    display: none;
+    width: 600px;
+    height: 250px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: lightgrey;
+    z-index: 2;
+    cursor: pointer;
+    margin-top: 40px;
+    margin-left: 106px;
+}
+#text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 100px;
+    color: black;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+
+
+}
+form {
+    border: 0px solid #f1f1f1;
+}
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    color: black;
+
+}
+
+#label {
+	color: black;
+	font-size: 15px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: lightgrey;
+  border: none;
+  color: #000000;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.eingabe {
+ color: #ffffff;
+}
+
+.container {
+    padding: 40px;
+}
+
+#menubutton {
+position: absolute;
+display: inline-block;
+margin-top: 40px;
+
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 120px;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    height: 82px;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+li a:hover {
+    background-color: lightgrey;
+    color: black;
+    height: 45px;
+
+}
+
+#subbotton {
+	display: none;
+	position: absolute;
+	margin-top: 40px;
+	margin-left: 106px;
+
+
+}
+
+div.scroll {
+    background-color: white;
+    width: 600px;
+    height: 550px;
+    overflow: scroll;
+}
+
+.footer {
+    background-color: lightgrey;
+    padding: 0px;
+    text-align: center;
+}
+
+.cssdesign{
+border: 1px solid #000;
+background-color: #FFFFCC;
+width: 270px;
+height: 150px;
+position: fixed;
+margin-left: 916px;
+margin-top: 45px;
+
+}
+
+</style>
+</head>
+
+
+
+
+<body>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+    
+  
+    <div class="row">
+    <button id="menubutton" onmouseover="showbtn()" 
+   onmouseleave="shownotbtn()" class="button" style="vertical-align:middle"><span>Menu </span></button>
+
+    <ul onmouseover="showbtn()" onmouseleave="shownotbtn()" id="subbotton" onclick="on()">
+  <li><a href="#Kommentieren">Kommentieren</a></li>
+  <li><a href="#Chatverlauf">Chatverlauf</a></li>
+  </ul>
+
+ <textarea rows="6" cols="40" class="cssdesign"></textarea>
+
+    <div class="col l3 #64b5f6 blue lighten-2">Funktion</div>
+    <div class="col l6 #64b5f6 blue lighten-2">Dokument</div>   
+    <div class="col l3 #64b5f6 blue lighten-2">Kommentare</div>
+<div class="col l3"></div>
+<div class="scroll" id="textdiv" class="col l5">1Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+1Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</div>
+
+</div>
+
+
+
+<div id="overlay">
+  <form method="POST">
+  <div class="imgcontainer">
+</div>
+
+  <div class="container">
+    <label id="label"><b>Benutzernamen eingeben</b></label>
+    <input class="eingabe" type="text" id="username" placeholder="Name eingeben" name="uname" required>
+	 <button onclick="check(event)">OK</button>
+    
+  </div>
+</form>
+</div>
+
+
+<div class="footer">
+  <p>System zur Erfassung und Verfolgung von Änderungen Dokumenten ( uttc mbH Kamp-Lintfort und Hochschule Rhein-Waal )</p>
+</div>
+
+
+
+<script>
+function on() {
+    document.getElementById("overlay").style.display = "block";
+}
+function off() {
+    document.getElementById("overlay").style.display = "none";
+}
+
+function showbtn(){
+	document.getElementById("subbotton").style.display ="inline-block";
+}
+
+function shownotbtn (){
+	document.getElementById("subbotton").style.display = "none";
+}
+
+
+
+
+</script>
+
+
+</body>
+</html>
